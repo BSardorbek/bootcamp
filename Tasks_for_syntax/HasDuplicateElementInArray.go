@@ -18,7 +18,7 @@ func hasDuplicate(arr []int) {
 
 func main() {
 
-	arr := []int{3, 5, 8, 6, 9, 4, 3, 5, 9}
+	arr := []int{3, 4, 8, 6, 11, 4, 11, 4, 6}
 
 	hasDuplicate(arr)
 }
