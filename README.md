@@ -1,4 +1,4 @@
-# bootcamp
+# golang
 
 Bootcamp
 ----------
