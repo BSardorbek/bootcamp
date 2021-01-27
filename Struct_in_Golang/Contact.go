@@ -1,10 +1,10 @@
 package main
 
 import (
-	"fmt"
 	"strconv"
 )
 
+//asd
 type Contact struct {
 	id          int
 	firstName   string
@@ -36,19 +36,19 @@ func (c *Contact) toString() string {
 	return c.getFirstName() + " " + c.getLastName() + " " + strconv.Itoa(c.getID())
 }
 
-func main() {
+// func main() {
 
-	var newContact Contact
+// 	var newContact Contact
 
-	fmt.Println(newContact)
+// 	fmt.Println(newContact)
 
-	newContact.setLastName("sardor")
-	newContact.setFirstName("buvashev")
-	newContact.id = 1
-	fmt.Println(newContact)
+// 	newContact.setLastName("sardor")
+// 	newContact.setFirstName("buvashev")
+// 	newContact.id = 1
+// 	fmt.Println(newContact)
 
-	fmt.Println(newContact.toString())
-	newContact.setFirstName("testtt")
-	fmt.Println(newContact.toString())
+// 	fmt.Println(newContact.toString())
+// 	newContact.setFirstName("testtt")
+// 	fmt.Println(newContact.toString())
 
-}
+// }
