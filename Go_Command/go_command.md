@@ -1,4 +1,7 @@
-go mod tidy //go.mod faylini yangilash uchun
+go mod tidy 
+
+
+go install
 
 go mod init //Modullar yordamida loyihani ishga tushirish
 
