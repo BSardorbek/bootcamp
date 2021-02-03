@@ -1,15 +1,16 @@
 package main
 
 import (
-	"postgresql/db"
+	route "postgresql/routes"
 
 	"github.com/gin-gonic/gin"
 )
 
 func main() {
-	route := gin.Default()
 
-	db.RUN().MustExec()
+	app := gin.Default()
 
-	route.Run(":3000")
+	route.API(app)
+
+	app.Run(":3000")
 }

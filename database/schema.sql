@@ -1,14 +1,8 @@
-package main
-
-import (
-	"postgresql/db"
-)
-
-var schema = `
-
+-- name: create-teamlead-table
 CREATE TABLE "teamlead" (
 	"id" serial,
 	"full_name" VARCHAR(255),
+	"created_at" DATETIME,
 	CONSTRAINT "teamlead_pk" PRIMARY KEY ("id")
 ) WITH (
   OIDS=FALSE
@@ -27,6 +21,8 @@ CREATE TABLE "director" (
 CREATE TABLE "task" (
 	"id" serial,
 	"title" VARCHAR(255),
+	"created_at" DATETIME NOT NULL,
+	"updated_at" DATETIME NOT NULL,
 	"t_id" integer NOT NULL,
 	"p_id" integer NOT NULL,
 	"end_task" BOOLEAN NOT NULL,
@@ -42,6 +38,7 @@ CREATE TABLE "task" (
 CREATE TABLE "programmer" (
 	"id" serial NOT NULL,
 	"full_name" VARCHAR(255),
+	"created_at" DATETIME,
 	CONSTRAINT "programmer_pk" PRIMARY KEY ("id")
 ) WITH (
   OIDS=FALSE
@@ -51,22 +48,3 @@ CREATE TABLE "programmer" (
 ALTER TABLE "task" ADD CONSTRAINT "task_fk0" FOREIGN KEY ("t_id") REFERENCES "teamlead"("id");
 ALTER TABLE "task" ADD CONSTRAINT "task_fk1" FOREIGN KEY ("p_id") REFERENCES "programmer"("id");
 
-
-`
-
-func main() {
-
-	//schema ni mazaga migrate qiladi
-	// db.RUN().MustExec(schema)
-
-	tx := db.RUN().MustBegin()
-
-	// tx.MustExec("INSERT INTO director (id, full_name) VALUES ($1, $2)", 1, "Sardor")
-	// tx.MustExec("INSERT INTO teamlead (id, full_name) VALUES ($1, $2)", 1, "Doston")
-	// tx.MustExec("INSERT INTO programmer (id, full_name) VALUES ($1, $2)", 1, "Navruz")
-
-	// tx.MustExec("INSERT INTO task (id, title) VALUES ($1, $2)", 1, "Web Ilova yaratish")
-
-	tx.Commit()
-
-}
