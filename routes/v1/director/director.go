@@ -12,5 +12,6 @@ func DirectorRoutes(r *gin.RouterGroup) {
 	{
 		directors.GET("/", director.List)
 		directors.GET("/:id", director.Read)
+		directors.POST("/:id", director.FinishTask)
 	}
 }

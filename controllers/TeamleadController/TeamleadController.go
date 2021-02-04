@@ -1,6 +1,7 @@
 package TeamleadController
 
 import (
+	"fmt"
 	"net/http"
 	"postgresql/db"
 	"postgresql/models"
@@ -31,7 +32,14 @@ func List(c *gin.Context) {
 	})
 }
 
+func Read(c *gin.Context) {
+	fmt.Println(c.Param("id"))
+}
 
 func TaskAssignP(c *gin.Context) {
+	fmt.Println(c.Param("id"), c.Param("pid")) //task id and prog id
+}
+
+func CheckTask(c *gin.Context) {
 
 }

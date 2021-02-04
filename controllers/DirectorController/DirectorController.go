@@ -1,7 +1,6 @@
 package DirectorController
 
 import (
-	"fmt"
 	"net/http"
 	"postgresql/db"
 	"postgresql/models"
@@ -58,7 +57,7 @@ func Read(c *gin.Context) {
 
 //TaskAssignT ...
 func TaskAssignT(c *gin.Context) {
-	fmt.Println(c.Param("id"), c.Param("tid"))
+	// fmt.Println(c.Param("id"), c.Param("tid"))
 
 	taskid := c.Param("id")
 	teamleadid := c.Param("tid")
@@ -78,5 +77,9 @@ func TaskAssignT(c *gin.Context) {
 			"data":   data,
 		})
 	}
+
+}
+
+func FinishTask(c *gin.Context) {
 
 }

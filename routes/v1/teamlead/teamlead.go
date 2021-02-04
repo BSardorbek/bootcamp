@@ -12,6 +12,8 @@ func TeamleadRoutes(r *gin.RouterGroup) {
 
 		teamleads.GET("/", teamlead.List)
 		teamleads.GET("/:id", teamlead.Read)
+		teamleads.POST("/:id", teamlead.CheckTask)
+		teamleads.GET("/:id/:pid", teamlead.TaskAssignP)
 
 	}
 }

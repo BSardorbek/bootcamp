@@ -30,3 +30,11 @@ func List(c *gin.Context) {
 		"data":   programmers,
 	})
 }
+
+func Read(c *gin.Context) {
+
+}
+
+func EndTask(c *gin.Context) {
+
+}
