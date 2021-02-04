@@ -6,14 +6,11 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-//director...
+//DirectorRoutes ...
 func DirectorRoutes(r *gin.RouterGroup) {
 	directors := r.Group("/director")
 	{
-		// directors.POST("/", create)
 		directors.GET("/", director.List)
-		// directors.GET("/:id", read)
-		// directors.DELETE("/:id", remove)
-		// directors.PATCH("/:id", update)
+		directors.GET("/:id", director.Read)
 	}
 }

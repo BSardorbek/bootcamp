@@ -3,7 +3,7 @@ package models
 import "database/sql"
 
 //task...
-type Tasks struct {
+type Task struct {
 	ID     uint64       `json:"id"`
 	Title  string       `json:"title"`
 	TID    uint64       `json:"t_id"`

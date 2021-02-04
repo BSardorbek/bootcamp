@@ -18,7 +18,7 @@ func BuildDBConfig() *DBConfig {
 	dbConfig := DBConfig{
 		Host:     "127.0.0.1",
 		Port:     5432,
-		User:     "postgres",
+		User:     "sardor",
 		Password: "1101",
 		DBName:   "mydb",
 	}

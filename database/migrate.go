@@ -1,8 +1,6 @@
 package main
 
-import (
-	"postgresql/db"
-)
+import "postgresql/db"
 
 var schema = `
 
@@ -27,11 +25,11 @@ CREATE TABLE "director" (
 CREATE TABLE "task" (
 	"id" serial,
 	"title" VARCHAR(255),
-	"t_id" integer NOT NULL,
-	"p_id" integer NOT NULL,
-	"end_task" BOOLEAN NOT NULL,
-	"finish_task" BOOLEAN NOT NULL,
-	"check_task" BOOLEAN NOT NULL,
+	"tid" integer  DEFAULT 0,
+	"pid" integer  DEFAULT 0,
+	"endt" BOOLEAN DEFAULT FALSE,
+	"finisht" BOOLEAN  DEFAULT FALSE,
+	"checkt" BOOLEAN  DEFAULT FALSE,
 	CONSTRAINT "task_pk" PRIMARY KEY ("id")
 ) WITH (
   OIDS=FALSE
@@ -40,19 +38,17 @@ CREATE TABLE "task" (
 
 -- name: create-programmer-table
 CREATE TABLE "programmer" (
-	"id" serial NOT NULL,
+	"id" serial  ,
 	"full_name" VARCHAR(255),
 	CONSTRAINT "programmer_pk" PRIMARY KEY ("id")
 ) WITH (
   OIDS=FALSE
 );
 
-
-ALTER TABLE "task" ADD CONSTRAINT "task_fk0" FOREIGN KEY ("t_id") REFERENCES "teamlead"("id");
-ALTER TABLE "task" ADD CONSTRAINT "task_fk1" FOREIGN KEY ("p_id") REFERENCES "programmer"("id");
-
-
 `
+
+// ALTER TABLE "task" ADD CONSTRAINT "task_fk0" FOREIGN KEY ("t_id") REFERENCES "teamlead"("id");
+// ALTER TABLE "task" ADD CONSTRAINT "task_fk1" FOREIGN KEY ("p_id") REFERENCES "programmer"("id");
 
 func main() {
 
@@ -65,8 +61,8 @@ func main() {
 	// tx.MustExec("INSERT INTO teamlead (id, full_name) VALUES ($1, $2)", 1, "Doston")
 	// tx.MustExec("INSERT INTO programmer (id, full_name) VALUES ($1, $2)", 1, "Navruz")
 
-	tx.MustExec("INSERT INTO tasks (id, title) VALUES ($1, $2)", 1, "Web Ilova yaratish")
-	tx.MustExec("INSERT INTO tasks (id, title,tid,pid,endt,check,finish) VALUES ($1, $2)", 1, "Web Ilova yaratish", 1, 1, true, true, true)
+	// tx.MustExec("INSERT INTO task (id, title) VALUES ($1, $2)", 1, "Web Ilova yaratish")
+	tx.MustExec("INSERT INTO task (id, title,tid,pid,endt,checkt,finisht) VALUES ($1,$2,$3,$4,$5,$6,$7)", 2, "tets project", 1, 1, true, true, true)
 
 	tx.Commit()
 

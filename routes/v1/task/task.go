@@ -6,14 +6,12 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-//programmer...
+//TaskRoutes ...
 func TaskRoutes(r *gin.RouterGroup) {
 	tasks := r.Group("/task")
 	{
-		// teamleads.POST("/", create)
 		tasks.GET("/", task.List)
-		// teamleads.GET("/:id", read)
-		// teamleads.DELETE("/:id", remove)
-		// teamleads.PATCH("/:id", update)
+		tasks.GET("/:id", task.Read)
+
 	}
 }

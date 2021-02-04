@@ -1,6 +1,7 @@
 package TaskController
 
 import (
+	"fmt"
 	"net/http"
 	"postgresql/db"
 	"postgresql/models"
@@ -15,10 +16,10 @@ func List(c *gin.Context) {
 
 	db := db.RUN().MustBegin()
 
-	tasks := []models.Tasks{}
+	task := []models.Task{}
 
-	err = db.Select(&tasks, `SELECT id,title FROM tasks WHERE tid = 0;`)
-	// err = db.Select(&tasks, `SELECT id,title FROM tasks;`)
+	err = db.Select(&task, `SELECT id,title FROM task WHERE tid = 0;`)
+	// err = db.Select(&task, `SELECT id,title FROM tasks;`)
 
 	if err != nil {
 		c.JSON(http.StatusOK, gin.H{
@@ -28,7 +29,13 @@ func List(c *gin.Context) {
 	} else {
 		c.JSON(http.StatusOK, gin.H{
 			"status": "all list task",
-			"data":   tasks,
+			"data":   task,
 		})
 	}
 }
+
+func Read(c *gin.Context) {
+	fmt.Println(c.Param("id"))
+}
+
+
