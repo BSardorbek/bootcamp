@@ -41,6 +41,9 @@ github.com/modern-go/concurrent
 # github.com/modern-go/reflect2 v1.0.1
 ## explicit
 github.com/modern-go/reflect2
+# github.com/streadway/amqp v1.0.0
+## explicit
+github.com/streadway/amqp
 # github.com/ugorji/go v1.2.3
 ## explicit
 # github.com/ugorji/go/codec v1.2.3

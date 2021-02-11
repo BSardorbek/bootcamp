@@ -18,8 +18,8 @@ func BuildDBConfig() *DBConfig {
 	dbConfig := DBConfig{
 		Host:     "127.0.0.1",
 		Port:     5432,
-		User:     "sardor",
-		Password: "1101",
+		User:     "admin",
+		Password: "xoji",
 		DBName:   "mydb",
 	}
 	return &dbConfig

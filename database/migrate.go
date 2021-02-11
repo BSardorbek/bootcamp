@@ -62,7 +62,7 @@ func main() {
 	// tx.MustExec("INSERT INTO programmer (id, full_name) VALUES ($1, $2)", 1, "Navruz")
 
 	// tx.MustExec("INSERT INTO task (id, title) VALUES ($1, $2)", 1, "Web Ilova yaratish")
-	tx.MustExec("INSERT INTO task (id, title,tid,pid,endt,checkt,finisht) VALUES ($1,$2,$3,$4,$5,$6,$7)", 2, "tets project", 1, 1, true, true, true)
+	// tx.MustExec("INSERT INTO task (id, title,tid,pid,endt,checkt,finisht) VALUES ($1,$2,$3,$4,$5,$6,$7)", 2, "tets project", 1, 1, true, true, true)
 
 	tx.Commit()
 
