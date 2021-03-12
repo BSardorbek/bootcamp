@@ -2,8 +2,7 @@ package main
 
 import "fmt"
 
-func hasDuplicate(arr []int) {
-
+func hasDuplicateBad(arr []int) {
 	for i := 0; i < len(arr); i++ {
 		tmp := arr[i]
 		for j, v := range arr {
@@ -13,6 +12,17 @@ func hasDuplicate(arr []int) {
 			}
 		}
 	}
+}
+
+func hasDuplicateGood(arr []int) {
+
+	m := make(map[int]int)
+
+	for _, v := range arr {
+		m[v]++
+	}
+
+	fmt.Printf("array duplicate number %d \n ", m)
 
 }
 
@@ -20,5 +30,8 @@ func main() {
 
 	arr := []int{3, 4, 8, 6, 11, 4, 11, 4, 6}
 
-	hasDuplicate(arr)
+	hasDuplicateBad(arr)
+
+	hasDuplicateGood(arr)
+
 }
